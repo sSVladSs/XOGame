@@ -1,5 +1,7 @@
 package org.example;
 
+import javax.swing.*;
+
 public class Logic {
     public int side = 3;
     public int length = side * side;
@@ -26,6 +28,7 @@ public class Logic {
         if (field[index] == null) {
             field[index] = symbol;
         } else {
+            JOptionPane.showMessageDialog(null, "ПОЛЕ ЗАНЯТО!");
             return false;
         }
         return true;

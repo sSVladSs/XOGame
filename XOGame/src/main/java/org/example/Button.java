@@ -29,15 +29,15 @@ public class Button extends JButton {
 
     public boolean result(String symbol) {
         if (symbol == "X") {
-            action("YOU WIN!");
+            action("ВЫ ВЫИГРАЛИ!");
             return true;
         }
         if (symbol == "O") {
-            action("YOU LOUSE!");
+            action("ВЫ ПРОИГРАЛИ!");
             return true;
         }
         if (symbol == "Deadlock") {
-            action("DRAW!");
+            action("НИЧЬЯ!");
             return true;
         }
         return false;
@@ -47,7 +47,9 @@ public class Button extends JButton {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            logic.positionUser(index);
+            if(!logic.positionUser(index)) {
+                return;
+            }
             frame.update();
             if (result(logic.resultGame())) {
                 return;
